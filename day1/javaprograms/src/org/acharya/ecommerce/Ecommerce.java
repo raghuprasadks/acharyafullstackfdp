@@ -13,15 +13,22 @@ public class Ecommerce {
 		Product prod1 = new Product(1,"Mobile",20000);
 		ec.createProduct(prod1);		
 		Product prod2 = new Product(2,"TV",50000);
-		ec.createProduct(prod2);		
+		ec.createProduct(prod2);
+		
+		Product prod3 = new Product(3,"Tab",25000);
+		ec.createProduct(prod3);
+		
 		ec.getProductList();
 		
 		Scanner scr = new Scanner(System.in);
 		System.out.println("Enter the product id to be deleted");
 		int productid = scr.nextInt();
-		ec.deleteProduct(productid);
+		//ec.deleteProduct(productid);
 		ec.getProductList();
 		
+		ec.updateProduct("Mobile", 25000);
+		
+		ec.getProductList();
 	}	
 	
 	public void createProduct(Product prd)
@@ -41,9 +48,10 @@ public class Ecommerce {
 	public void deleteProduct(int id)
 	{
 		int productIndex = 0;
+		Product prd = null;
 		for (int i=0;i<productList.size();i++)
 		{
-			Product prd = productList.get(i);
+			prd = productList.get(i);
 			if (prd.productId == id)
 			{
 				productIndex = i;
@@ -54,6 +62,29 @@ public class Ecommerce {
 		}
 		
 		productList.remove(productIndex);
+		
+		
+	}
+	
+	public void updateProduct(String productName,float newPrice)
+	{
+		int productIndex = 0;
+		Product prd =null;
+		for (int i=0;i<productList.size();i++)
+		{
+			prd = productList.get(i);
+			if (prd.productName.equalsIgnoreCase(productName))
+			{
+				
+				productIndex = i;
+				prd.price = newPrice;
+				break;
+			}
+			
+		}
+		
+		productList.set(productIndex, prd);
+		
 		
 		
 	}
