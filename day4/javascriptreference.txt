@@ -1,0 +1,24 @@
+download sublimetext 3
+
+download node.js
+
+for (i = 0;i<userlist.length;i++){console.log(userlist[i]);}
+
+
+person = {name:"raghu",city:"bengaluru"}
+
+typeof(person)
+person.name
+person.city
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+this.info = function()
+{
+return this.firstName +this.lastName + this.age+this.eyeColor;
+}
+}
+raghu = new Person('raghu','prasad',37,'Blue')
+ravi = new Person('ravi','prasad',37,'Blue')

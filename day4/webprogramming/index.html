@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introduction</title>
+	<style type="text/css">
+		body{
+			background-color: blue;
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+<h1>Registration</h1>
+<input id = "name" type="text" name="name" placeholder="Enter your name">
+
+<input id = "mobile" type="text" name="mobile" placeholder="Enter your Mobile Number">
+
+<input type="submit" value="Submit" onclick="save()">
+<h2>Your name is </h2>
+<h3 id ="result"></h3>
+<script type="text/javascript">
+	userlist = [];
+	function save()
+	{
+		name = document.getElementById("name").value;
+		mobile = document.getElementById("mobile").value;
+		console.log(name);
+		document.getElementById("result").innerHTML = name +' - '+mobile;
+        //userlist.push(name);
+        //userlist.push(mobile);
+        
+        //entry = user(name,mobile);
+        userlist.push(new user(name,mobile));
+console.log(userlist);
+
+
+		//alert('Your name is '+name);
+	}
+	
+	function user(name,mobile){
+		this.name = name;
+		this.mobile = mobile;
+	}
+</script>
+</body>
+</html>
